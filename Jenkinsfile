@@ -11,5 +11,11 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+        stage('BuildImage') {
+          sh ''' docker build -t registry.glodon.com:5000/simple-app:t_$BUILD_NUMBER .'''
+        }
+        stage('PushImage') {
+          sh ''' docker push registry.glodon.com:5000/simple-app:t_$BUILD_NUMBER '''
+        }
     }
 }
