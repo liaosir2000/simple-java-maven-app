@@ -3,8 +3,10 @@ pipeline {
     stages {
       stage('MvnBuild') {
         agent {
-          image 'maven:3-alpine'
-          args '-v /Users/glodon/.m2:/root/.m2'
+          docker {
+            image 'maven:3-alpine'
+            args '-v /Users/glodon/.m2:/root/.m2'
+          }
         }
         steps {
           sh 'mvn -B -DskipTests clean package'
