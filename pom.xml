@@ -33,5 +33,6 @@
         </configuration>
       </plugin>
     </plugins>
+    <finalName>simple-app</finalName>
   </build>
 </project>
