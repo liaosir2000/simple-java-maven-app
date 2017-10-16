@@ -16,7 +16,7 @@ pipeline {
         agent any
         steps {
           sh ''' docker build -t registry.bimface.com:5000/simple-app:t_$BUILD_NUMBER .'''
-          sh ''' docker push registry.bimface.com:5000/simple-app:t-$BUILD_NUMBER '''
+          sh ''' docker push registry.bimface.com:5000/simple-app:t_$BUILD_NUMBER '''
         }
       }
     }
